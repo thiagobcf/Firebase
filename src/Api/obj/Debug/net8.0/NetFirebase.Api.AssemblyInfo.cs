@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NetFirebase.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c11f755b3c307ebb5f07f659775467cbd3b6ae0a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1b4a1c24c53c9e231975f6d5b6605c3a263b6a4")]
 [assembly: System.Reflection.AssemblyProductAttribute("NetFirebase.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NetFirebase.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
