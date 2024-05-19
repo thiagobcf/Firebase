@@ -1,0 +1,57 @@
+# .NET & Visual Studio.gitignore template
+# Customize this template to your needs
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono Auto Generated)
+mono_crash.*
+
+# User-specific files (Visual Studio Code)
+.vscode/*
+
+# Logs
+*.log
+*.tlg
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Bb]uild/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# OS generated files
+[Tt]humbs.db
+[Dd]esktop.ini
+*.DS_Store
+
+# Package Files
+*.nupkg
+*.snupkg
+*.symbols.nupkg
+
+# Publish results
+[Pp]ublish/
+[Pp]ublishProfiles/
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# Ignore firebase.json
+src/Api/firebase.json
