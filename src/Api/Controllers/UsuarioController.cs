@@ -1,3 +1,4 @@
+using Api.Dtos.UsuarioRegister;
 using Api.Services.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +13,14 @@ namespace Api.Controllers
         public UsuarioController(IAuthenticationService authenticationService)
         {
             _authenticationService = authenticationService;
+        }
+        [HttpPost("register")]
+        public async Task<ActionResult<string>> Register
+        (
+            [FromBody] UsuarioRegisterRequestDto request
+        )
+        {
+            return await _authenticationService.RegisterAsync(request);
         }
     }
 }

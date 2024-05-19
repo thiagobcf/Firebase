@@ -1,7 +1,9 @@
+using Api.Dtos.UsuarioRegister;
+
 namespace Api.Services.Authentication
 {
     public interface IAuthenticationService
     {
-        Task<string> RegisterAsync(string email, string password);
+        Task<string> RegisterAsync(UsuarioRegisterRequestDto request);
     }
 }
