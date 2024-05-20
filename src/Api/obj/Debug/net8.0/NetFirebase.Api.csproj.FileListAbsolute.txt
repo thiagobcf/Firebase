@@ -31,3 +31,14 @@
 /home/thiagobcf/Documentos/projetos/Firebase/src/Api/obj/Debug/net8.0/NetFirebase.Api.pdb
 /home/thiagobcf/Documentos/projetos/Firebase/src/Api/obj/Debug/net8.0/NetFirebase.Api.genruntimeconfig.cache
 /home/thiagobcf/Documentos/projetos/Firebase/src/Api/obj/Debug/net8.0/ref/NetFirebase.Api.dll
+/home/thiagobcf/Documentos/projetos/Firebase/src/Api/bin/Debug/net8.0/FirebaseAdmin.dll
+/home/thiagobcf/Documentos/projetos/Firebase/src/Api/bin/Debug/net8.0/Google.Api.Gax.dll
+/home/thiagobcf/Documentos/projetos/Firebase/src/Api/bin/Debug/net8.0/Google.Api.Gax.Rest.dll
+/home/thiagobcf/Documentos/projetos/Firebase/src/Api/bin/Debug/net8.0/Google.Apis.dll
+/home/thiagobcf/Documentos/projetos/Firebase/src/Api/bin/Debug/net8.0/Google.Apis.Auth.PlatformServices.dll
+/home/thiagobcf/Documentos/projetos/Firebase/src/Api/bin/Debug/net8.0/Google.Apis.Auth.dll
+/home/thiagobcf/Documentos/projetos/Firebase/src/Api/bin/Debug/net8.0/Google.Apis.Core.dll
+/home/thiagobcf/Documentos/projetos/Firebase/src/Api/bin/Debug/net8.0/Microsoft.Bcl.AsyncInterfaces.dll
+/home/thiagobcf/Documentos/projetos/Firebase/src/Api/bin/Debug/net8.0/Newtonsoft.Json.dll
+/home/thiagobcf/Documentos/projetos/Firebase/src/Api/obj/Debug/net8.0/NetFirebase.Api.sourcelink.json
+/home/thiagobcf/Documentos/projetos/Firebase/src/Api/bin/Debug/net8.0/firebase.json
