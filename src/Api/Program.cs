@@ -13,7 +13,12 @@ FirebaseApp.Create(new AppOptions{
     Credential = GoogleCredential.FromFile("firebase.json")
 });
 
-builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
+// builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
+builder.Services.AddHttpClient<IAuthenticationService, AuthenticationService>((sp, httpClient) => {
+    var configuration = sp.GetRequiredService<IConfiguration>();
+    httpClient.BaseAddress = new Uri(configuration["Authentication:TokenUri"]!);
+});
+
 
 var app = builder.Build();
 

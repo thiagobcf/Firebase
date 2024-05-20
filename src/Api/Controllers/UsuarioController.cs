@@ -1,3 +1,4 @@
+using Api.Dtos.Login;
 using Api.Dtos.UsuarioRegister;
 using Api.Services.Authentication;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ namespace Api.Controllers
         {
             _authenticationService = authenticationService;
         }
+
         [HttpPost("register")]
         public async Task<ActionResult<string>> Register
         (
@@ -21,6 +23,15 @@ namespace Api.Controllers
         )
         {
             return await _authenticationService.RegisterAsync(request);
+        }
+
+        [HttpPost("login")]
+        public async Task<ActionResult<string>> Login
+        (
+            [FromBody] LoginRequestDto request
+        )
+        {
+            return await _authenticationService.LoginAsync(request);
         }
     }
 }
