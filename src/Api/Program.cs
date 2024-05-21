@@ -5,8 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Adicionando serviços ao contêiner.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -14,24 +13,27 @@ FirebaseApp.Create(new AppOptions{
     Credential = GoogleCredential.FromFile("firebase.json")
 });
 
-// builder.Services.AddSingleton<IAuthenticationService, AuthenticationService>();
+// Registrando o serviço de autenticação
 builder.Services.AddHttpClient<IAuthenticationService, AuthenticationService>((sp, httpClient) => {
     var configuration = sp.GetRequiredService<IConfiguration>();
     httpClient.BaseAddress = new Uri(configuration["Authentication:TokenUri"]!);
 });
 
+// Configurando a autenticação JWT
 builder.Services
-    .AddAuthentication()
-    .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, jwtOption => {
-        jwtOption.Authority = builder.Configuration["Authentication:ValidIssuer"];
-        jwtOption.Audience = builder.Configuration["Authentication:Audience"];
-        jwtOption.TokenValidationParameters.ValidIssuer = builder.Configuration["Authentication:ValidIssuer"];
+    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(jwtOptions => {
+        jwtOptions.Authority = builder.Configuration["Authentication:ValidIssuer"];
+        jwtOptions.Audience = builder.Configuration["Authentication:Audience"];
+        jwtOptions.TokenValidationParameters.ValidIssuer = builder.Configuration["Authentication:ValidIssuer"];
     });
 
+// Adicionando serviços de autorização
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configurando o pipeline de requisição HTTP.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
