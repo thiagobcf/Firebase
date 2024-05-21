@@ -1,6 +1,7 @@
 using Api.Services.Authentication;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,14 @@ builder.Services.AddHttpClient<IAuthenticationService, AuthenticationService>((s
     var configuration = sp.GetRequiredService<IConfiguration>();
     httpClient.BaseAddress = new Uri(configuration["Authentication:TokenUri"]!);
 });
+
+builder.Services
+    .AddAuthentication()
+    .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, jwtOption => {
+        jwtOption.Authority = builder.Configuration["Authentication:ValidIssuer"];
+        jwtOption.Audience = builder.Configuration["Authentication:Audience"];
+        jwtOption.TokenValidationParameters.ValidIssuer = builder.Configuration["Authentication:ValidIssuer"];
+    });
 
 
 var app = builder.Build();
@@ -50,6 +59,9 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast")
 .WithOpenApi();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.Run();
 
