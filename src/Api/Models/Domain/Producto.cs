@@ -11,7 +11,7 @@ namespace Api.Models.Domain
         public string? Name { get; set; }
         public string? Description { get; set; }
         [Required]
-        [Column(TypeName = "decimal(18, 4)")]
+        [Column(TypeName = "REAL")]
         public decimal Price { get; set; }
     }
 }

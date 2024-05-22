@@ -34,12 +34,13 @@ builder.Services
 builder.Services.AddAuthorization();
 
 builder.Services.AddDbContext<DatabaseContext>(opt =>
-    {
-       opt.UseSqlite(builder.Configuration.GetConnectionString("SqliteDatabase"));
-    }
-);
-
-
+{
+    opt.LogTo(Console.WriteLine, new [] {
+        DbLoggerCategory.Database.Command.Name
+    }, LogLevel.Information).EnableSensitiveDataLogging();
+    
+    opt.UseSqlite(builder.Configuration.GetConnectionString("SqliteDatabase"));
+});
 
 var app = builder.Build();
 
