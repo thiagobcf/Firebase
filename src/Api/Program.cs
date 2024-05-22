@@ -1,7 +1,9 @@
+using Api.Data;
 using Api.Services.Authentication;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +32,14 @@ builder.Services
 
 // Adicionando serviços de autorização
 builder.Services.AddAuthorization();
+
+builder.Services.AddDbContext<DatabaseContext>(opt =>
+    {
+       opt.UseSqlite(builder.Configuration.GetConnectionString("SqliteDatabase"));
+    }
+);
+
+
 
 var app = builder.Build();
 
